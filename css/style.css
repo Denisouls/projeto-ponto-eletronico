@@ -42,12 +42,13 @@
 
 #dialog-ponto {
     font-family: "Montserrat", sans-serif;
-    font-size: large;
+    font-size: 1.1rem;
     border-radius: 15px;
     border: 0px;
 }
 
 #btn-dialog-fechar {
+    padding: 10px;
     font-size: large;
     border: 0px;
     color: #ffffff;
@@ -58,4 +59,21 @@
 #btn-dialog-fechar:hover {
     background-color: #ffffff;
     color: #000000;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+#div-alerta {
+    background-color: green;
+    color: #ffffff;
+    padding: 15px;
+    position: fixed;
+    right: 15;
+    bottom: 15;
 }
