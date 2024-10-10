@@ -23,6 +23,12 @@ let proxPonto = {
     "saida": "entrada"
 }
 
+
+let dialogHora = document.getElementById("dialog-hora");
+let dialogData = document.getElementById("dialog-data");
+
+dialogData.textContent = "Data: " + dataCompleta();
+
 // TO-DO:
 // apresentar para o usuário a data e hora atualizados
 // atualizar a data todos os dias 00:00
@@ -33,6 +39,9 @@ btnRegistrarPonto.addEventListener("click", () => {
     let ultimoPonto = localStorage.getItem("tipoUltimoPonto");
     dialogSelect.value = proxPonto[ultimoPonto];
     
+    
+    //dialogHora.textContent = horaCompleta();
+
     dialogPonto.showModal();
 });
 
@@ -101,8 +110,8 @@ btnDialogRegistrarPonto.addEventListener("click", () => {
     divAlerta.classList.add("show");
 
     setTimeout(() => {
-    divAlerta.classList.remove("show");
-    divAlerta.classList.add("hidden");
+        divAlerta.classList.remove("show");
+        divAlerta.classList.add("hidden");
     }, 5000);
 });
 
@@ -125,8 +134,15 @@ function atualizaHora() {
     horaMinSeg.textContent = horaCompleta();
 }
 
+function atualizaHoraDialog() {
+    dialogHora.textContent = "Hora: " + horaCompleta();
+}
+
 atualizaHora();
 setInterval(atualizaHora, 1000);
+
+atualizaHoraDialog()
+setInterval(atualizaHoraDialog, 1000);
 
 diaSemana.textContent = daySemana();
 diaMesAno.textContent = dataCompleta();
