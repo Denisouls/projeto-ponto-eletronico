@@ -4,43 +4,43 @@ body {
 }
 
 #abcd {
-    display: inline; /* Usar flexbox para alinhar itens na mesma linha */
-    align-items: center; /* Centraliza verticalmente os itens */
-    margin-bottom: 10px; /* Espaçamento entre os registros */
+    display: inline;
+    align-items: center;
+    margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ccc; /* Borda para os registros */
-    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
     display: inline;
-    background-color: #ff0000; /* Cor de fundo padrão */
-    color: white; /* Cor do texto */
-    border: none; /* Remove borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 8px 12px; /* Espaçamento interno */
-    margin-left: 10px; /* Espaçamento entre o registro e o botão */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
-    transition: background-color 0.3s; /* Animação ao mudar a cor */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3; /* Cor de fundo quando o mouse passa por cima */
+    background-color: #0056b3;
 }
 
-/* Estilos específicos para botões de editar e excluir */
+
 button:nth-child(2) {
-    background-color: #28a745; /* Verde para editar */
+    background-color: #28a745;
 }
 
 button:nth-child(2):hover {
-    background-color: #218838; /* Verde escuro */
+    background-color: #218838;
 }
 
 button:nth-child(1) {
-    background-color: #dc3545; /* Vermelho para excluir */
+    background-color: #dc3545;
 }
 
 button:nth-child(1):hover {
-    background-color: #c82333; /* Vermelho escuro */
+    background-color: #c82333;
 }
