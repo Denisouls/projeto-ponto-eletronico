@@ -1,39 +1,79 @@
 function criarRelatorio() {
-
     const containerRegistros = document.getElementById("container-registros");
+    let registros = JSON.parse(localStorage.getItem("registro")) || [];
 
-    let registros = JSON.parse(localStorage.getItem("registro"));
-    registros.forEach(registro => {
-        console.log(registro);
-        
+    // Limpa o container antes de recriar os registros
+    containerRegistros.innerHTML = "";
+
+    registros.forEach((registro, index) => {
         const divRegistro = document.createElement("div");
         divRegistro.classList.add("abcd");
-        
-        // para cara registro, temos
-        // hora: registro.hora (já está na variável hora)
-        // data: registro.data
-        // tipo: registro.tipo
 
         let hora = registro.hora;
         let data = registro.data;
         let tipo = registro.tipo;
 
-        divRegistro.innerHTML = `<p> ${tipo} | ${data} | ${hora} </p>`
+        divRegistro.innerHTML = `<p>${tipo} | ${data} | ${hora}</p>`;
+        
+        // Botão de editar
         const buttonEditar = document.createElement("button");
+        buttonEditar.textContent = "Editar";
+        buttonEditar.addEventListener("click", () => editarRegistro(index));
 
+        // Botão de excluir
+        const buttonExcluir = document.createElement("button");
+        buttonExcluir.textContent = "Excluir";
+        buttonExcluir.addEventListener("click", () => alert("Este ponto não pode ser excluído."));
 
-        // Adicionar botões
-        containerRegistros.appendChild(divRegistro);
         divRegistro.appendChild(buttonEditar);
+        divRegistro.appendChild(buttonExcluir);
+        containerRegistros.appendChild(divRegistro);
     });
-
-    /* 
-    2. iterar sobre os registros
-    2.1 para cada registro, criar um elemento na página
-    2.2 Tipo | hora | obs? | anexo? | editar | excluir
-    2.3 agrupar registros por data
-
-    */
 }
+
+function adicionarRegistro(tipo, data, hora) {
+    const dataCompleta = new Date();
+    const dataInserida = new Date(data);
+
+    // Verifica se a data inserida é futura
+    if (dataInserida > dataAtual) {
+        alert("Não é permitido marcar uma data futura.");
+        return;
+    }
+
+    let registros = JSON.parse(localStorage.getItem("registro")) || [];
+    registros.push({ tipo, data, hora });
+    localStorage.setItem("registro", JSON.stringify(registros));
+    criarRelatorio(); // Atualiza o relatório
+}
+
+function editarRegistro(index) {
+    let registros = JSON.parse(localStorage.getItem("registro")) || [];
+    const registro = registros[index];
+
+    const novoTipo = prompt("Editar tipo:", registro.tipo);
+    const novaData = prompt("Editar data:", registro.data);
+    const novaHora = prompt("Editar hora:", registro.hora);
+
+    // Verifica se a nova data é futura
+    if (novaData) {
+        const dataAtual = new Date();
+        const dataInserida = new Date(novaData);
+        if (dataInserida > dataAtual) {
+            alert("Não é permitido marcar uma data futura.");
+            return;
+        }
+        registro.data = novaData;
+    }
+
+    if (novoTipo !== null) registro.tipo = novoTipo;
+    if (novaHora !== null) registro.hora = novaHora;
+
+    localStorage.setItem("registro", JSON.stringify(registros));
+    criarRelatorio(); // Atualiza o relatório
+}
+
+// Exemplo de uso: adicionar um registro
+// adicionarRegistro("Tipo Exemplo", "2023-10-25", "10:00"); // Data atual ou passada
 
 criarRelatorio();
