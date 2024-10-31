@@ -1,7 +1,8 @@
-.data-hora{
+.data-hora {
     text-align: center;
 }
-#btn-dialog-fechar{
+
+#btn-dialog-fechar {
     position: absolute;
     top: 0;
     right: 0;
@@ -11,54 +12,48 @@
     text-align: center;
 }
 
-#btn-registrar-ponto, #btn-dialog-registrar-ponto{
-    font-family: "Montserrat", sans-serif;
-    font-size: large;
-    padding: 25px;  
-    border: 0px;
-    background-color: #5BA1C8;
-    color: #ffffff;
-    border-radius: 20px;
-}
-
-#btn-registrar-ponto:hover, #btn-dialog-registrar-ponto:hover{
-    color: #ffffff;
-    background-color: #000000;
-}
-
 .data-hora p {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Rajdhani", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 3rem;
 }
 
-#select-tipos-ponto {
+#btn-registrar-ponto, #btn-dialog-registrar-ponto {
+    font-size: 1.5rem;
     padding: 25px;
-    border-radius: 20px;
-    font-size: large;
     border: 0px;
+    background-color: blue;
+    color: white;
 }
 
-#dialog-ponto {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.1rem;
-    border-radius: 15px;
-    border: 0px;
+#btn-registrar-ponto:hover {
+    background-color: red;
+}
+
+#btn-registrar-ponto:active {
+    background-color: black;
+}
+
+#select-tipos-ponto {
+    font-size: 1.5rem;
+    padding: 25px;
+    
+}
+
+#dialog-ponto p {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2rem;    
 }
 
 #btn-dialog-fechar {
-    padding: 10px;
-    font-size: large;
+    padding: 15px;
     border: 0px;
-    color: #ffffff;
     background-color: red;
-    border-radius: 3px;
-}
-
-#btn-dialog-fechar:hover {
-    background-color: #ffffff;
-    color: #000000;
+    color: white;
+    font-size: 1.1rem;
 }
 
 .hidden {
@@ -71,9 +66,9 @@
 
 #div-alerta {
     background-color: green;
-    color: #ffffff;
+    color: white;
     padding: 15px;
     position: fixed;
-    right: 15;
-    bottom: 15;
+    right: 15px;
+    bottom: 15px;
 }
